@@ -13,6 +13,7 @@ namespace IdentitySample
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                //,constraints: new { "Home|Pedagogik" } detta är 
             );
         }
     }
