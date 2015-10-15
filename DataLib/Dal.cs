@@ -48,7 +48,7 @@ namespace DataLib
                 var _content = db.Content.Find(elementId);
                 if (_content != null)
                 {
-                    throw new ArgumentException("{0} already exists. Try updateContent?", elementId);
+                    throw new ArgumentException("Id already exists", "elementId");
                 }
                 var contentToSave = new DataLib.Models.EditableContent();
                 contentToSave.ElementId = elementId;

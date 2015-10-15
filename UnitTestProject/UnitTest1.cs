@@ -15,7 +15,17 @@ namespace UnitTestProject
 
             DAL.addContent(elementId, toStore);
 
-            Assert.AreEqual<string>(toStore, DAL.getContent(elementId));
+            Assert.AreEqual(toStore, DAL.getContent(elementId));
+
+            try
+            {
+                DAL.addContent(elementId, toStore);
+                Assert.Fail("Inget exception kastades ");
+            }
+            catch (ArgumentException ae)
+            {
+                Assert.AreEqual("Id already exists", ae.Message);
+            }
         }
 
         [TestMethod]
