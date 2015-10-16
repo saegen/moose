@@ -13,7 +13,7 @@ namespace DataLib
         protected void Application_Start()
         {
             //ApplicationDbInitializer.InitializeIdentityForEF(new ApplicationDbContext());
-            Database.SetInitializer(new ApplicationDbInitializer());
+           // Database.SetInitializer(new ApplicationDbInitializer());
             
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
