@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace IdentitySample.Extensions
+namespace DataLib.Extensions
 {
     public class AuthorizeRolesAttribute : AuthorizeAttribute
     {

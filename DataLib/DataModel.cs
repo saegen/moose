@@ -6,27 +6,29 @@ namespace DataLib
     using System.Linq;
     using Models;
 
-    public partial class DataModel : DbContext
+    public partial class DataModel : DataModelContext
     {
-        public DataModel()
-            : base("name=DataModelCodeFirst")
+        public DataModel() : base("DataModelCodeFirst", throwIfV1Schema: false)
+            //: base("name=DataModelCodeFirst")
         {
         }
 
         public virtual DbSet<EditableContent> Content { get; set; }
 
         //public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
-        //public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
-        //public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
-        //public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
-        //public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+                    
             modelBuilder.Entity<EditableContent>()
                 .HasKey<string>(e => e.ElementId)
                 .Map(m => m.ToTable("Content"));
-                    
+
             //modelBuilder.Entity<AspNetRole>()
             //    .HasMany(e => e.AspNetUsers)
             //    .WithMany(e => e.AspNetRoles)
@@ -41,6 +43,10 @@ namespace DataLib
             //    .HasMany(e => e.AspNetUserLogins)
             //    .WithRequired(e => e.AspNetUser)
             //    .HasForeignKey(e => e.UserId);
+
+            //modelBuilder.Entity<AspNetUser>().HasKey<string>(u => u.Id);
+            //modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
+            //modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
         }
 
         //public class EditableContent

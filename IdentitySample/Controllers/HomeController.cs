@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Web.Mvc;
 using System.Linq;
 
-namespace IdentitySample.Controllers
+namespace DataLib.Controllers
 {
     using Extensions;
     using Common;

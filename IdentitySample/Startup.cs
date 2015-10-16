@@ -1,6 +1,6 @@
 ﻿using Owin;
 
-namespace IdentitySample
+namespace DataLib
 {
     public partial class Startup
     {
