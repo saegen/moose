@@ -10,14 +10,14 @@ namespace DataLib
     {
         public static string getContent(string elementId)
         {
-            if (string.IsNullOrWhiteSpace( elementId) )
+            if (string.IsNullOrWhiteSpace(elementId))
             {
                 throw new ArgumentNullException("elementId");
             }
             using (DataModel db = new DataModel())
             {
                 var content = db.Content.Find(elementId);
-                return content.Content;
+                return content != null ? content.Content : "";
             }
         }
 
@@ -33,6 +33,7 @@ namespace DataLib
                 if (content != null)
                 {
                     db.Content.Remove(content);
+                    db.SaveChanges();
                 }
             }
         }

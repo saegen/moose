@@ -5,7 +5,7 @@ namespace DataLib
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using Models;
-
+    //3 stegs arv. DataModel:DataModelContext:Identity<
     public partial class DataModel : DataModelContext
     {
         public DataModel() : base("DataModelCodeFirst", throwIfV1Schema: false)
@@ -48,13 +48,5 @@ namespace DataLib
             //modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
             //modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
         }
-
-        //public class EditableContent
-        //{
-        //    public string ElementId { get; set; }
-        //    public string Content { get; set; }
-        //    public string View { get; set; }
-
-        //}
     }
 }
