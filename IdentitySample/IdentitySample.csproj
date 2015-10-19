@@ -169,6 +169,7 @@
     <Content Include="Content\Images\pedagogik.jpg" />
     <Content Include="Content\Images\pedagogik2.jpg" />
     <Content Include="Content\Images\pedagogik3.jpg" />
+    <Content Include="Content\Images\personal.png" />
     <Content Include="Content\Images\verksamhet.jpg" />
     <Content Include="Content\Images\verksamhet2.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -180,6 +181,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Views\Home\Pedagogy.cshtml" />
+    <Content Include="Views\Home\Meny.cshtml" />
+    <Content Include="Views\Home\CoOp.cshtml" />
+    <Content Include="Views\Home\Staff.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

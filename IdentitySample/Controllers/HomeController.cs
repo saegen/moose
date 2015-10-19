@@ -14,26 +14,59 @@ namespace DataLib.Controllers
         {
             if (Request.IsAuthenticated && HttpContext.User.IsInRole(UserRole.Admin))
             {
-                return RedirectToAction("About");
-                //return View();
+               // return RedirectToAction("About");
+                return View();
             }
             return View();
         }
 
         //[Authorize(Roles = Common.UserRole.Admin.ToString())] funkar ej, måste vara en konstant
         //[Authorize(Roles = UserRole.Admin + "," + UserRole.Parent)]
-        [AuthorizeRoles(UserRole.Staff,UserRole.Admin)]
+     //   [AuthorizeRoles(UserRole.Staff,UserRole.Admin)]
         //[Authorize(Roles = UserRole.Admin)]
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
+            ViewBag.Message = "Verksamhet";
 
             return View();
         }
 
+        [HttpGet]
         public ActionResult Contact()
         {
-            ViewBag.Message = "";
+            ViewBag.Message = "Kontakt";
+
+            return View();
+        }
+
+        [HttpGet]
+        public ViewResult Pedagogy()
+        {
+            ViewBag.Message = "Pedagogik";
+
+            return View();
+        }
+
+        [HttpGet]
+        public ViewResult CoOp()
+        {
+            ViewBag.Message = "Kooperativet";
+
+            return View();
+        }
+
+        [HttpGet]
+        public ViewResult Staff()
+        {
+            ViewBag.Message = "Personalen";
+
+            return View();
+        }
+
+        [HttpGet]
+        public ViewResult Meny()
+        {
+            ViewBag.Message = "Matsedel";
 
             return View();
         }

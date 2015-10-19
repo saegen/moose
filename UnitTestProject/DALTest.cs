@@ -8,7 +8,9 @@ namespace UnitTestProject
     public class DALTest
     {
         private string toStore = "contentToSave";
-        string elementId = "htmlId";
+        private string elementId = "htmlId";
+        string adminUserId = "a5a27cee-df8c-438d-9b3b-66ddab5a5973";
+
 
         [TestInitialize]
         public void Initialize()
@@ -41,7 +43,7 @@ namespace UnitTestProject
         [TestMethod]
         public void TestAddContent()
         {
-             
+
             DAL.addContent(elementId, toStore);
 
             Assert.AreEqual(toStore, DAL.getContent(elementId));
@@ -64,7 +66,14 @@ namespace UnitTestProject
             DAL.addContent(elementId, toStore);
             Assert.AreEqual(DAL.getContent(elementId), toStore);
             DAL.updateContent(elementId, update);
-            Assert.AreEqual(DAL.getContent(elementId),update);
+            Assert.AreEqual(DAL.getContent(elementId), update);
+        }
+
+        [TestMethod]
+        public void getAdmin()
+        {
+            var admin = DAL.getAdminUser(adminUserId);
+            Assert.IsNotNull(admin);
         }
     }
 }

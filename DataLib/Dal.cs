@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DataLib.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -77,5 +79,23 @@ namespace DataLib
                 db.SaveChanges();
             }
         }
+
+        public static AspNetUser getAdminUser(string adminId)
+        {
+            if (string.IsNullOrWhiteSpace(adminId))
+            {
+                throw new ArgumentNullException("adminId");
+            }
+            using (DataModel db = new DataModel())
+            {
+               // var adminAndRoles = db.Users.Include(u => u.Roles).SingleAsync(u => u.Id == adminId);
+                var admin = db.Users.Find(adminId);
+                //DataLibUser admin = db.DataLibUser
+                //var user = db.Find(adminId);
+                //return user;
+                return null;   
+            }
+        }
+
     }
 }
