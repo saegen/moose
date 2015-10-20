@@ -23,8 +23,14 @@ namespace DataLib
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                    "~/Content/font-awesome.min.css",
+                    "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            //bundles.Add(new StyleBundle("~/Content/css").Include(
+            //          "~/Content/bootstrap.css",
+            //          "~/Content/CustomCSS/NavBarMeny.css",
+            //          "~/Content/site.css"));
         }
     }
 }

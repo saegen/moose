@@ -17,15 +17,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    @*<span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>*@
                 </button>
                 @Html.ActionLink("Förskolan Älgen", "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
+            @*<div class="navbar-collapse collapse">*@
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink("Hem", "Index", "Home")</li>*@
+                @*<ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Hem", "Index", "Home")</li>
                     <li>@Html.ActionLink("Verksamhet", "About", "Home")</li>
                     <li>@Html.ActionLink("Kooperativet", "CoOp", "Home")</li>
                     <li>@Html.ActionLink("Personal", "Staff", "Home")</li>
@@ -38,13 +41,40 @@
                         <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
                         <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
                     }
-                </ul>
+                </ul>*@
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+    
     <div class="container body-content">
-        @RenderBody()
+        <div class="jumbotron">
+            <img id="logo" src="~/Content/Images/moose_logo_small.jpg" class="img img-responsive center-block" alt="Förskolan Älgen Bromsten" />
+        </div>        
+            <div class="row">
+            <div id="stackedMeny" class="col-md-3">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav nav-stacked navbar-left">
+                        @*<li>@Html.ActionLink("Hem", "Index", "Home")</li>*@
+                        <li>@Html.ActionLink("Verksamhet", "About", "Home", null, htmlAttributes: new { @class = "fa fa-2x" })</li>
+                        <li>@Html.ActionLink("Kooperativet", "CoOp", "Home", null, htmlAttributes: new { @class = "fa fa-2x" })</li>
+                        <li>@Html.ActionLink("Personal", "Staff", "Home", null, htmlAttributes: new { @class = "fa fa-2x" })</li>
+                        <li>@Html.ActionLink("Pedagogik", "Pedagogy", "Home", null, htmlAttributes: new { @class = "fa fa-2x" })</li>
+                        <li>@Html.ActionLink("Kontakt", "Contact", "Home", null, htmlAttributes: new { @class = "fa fa-2x" })</li>
+                        <li>@Html.ActionLink("Matsedel", "Meny", "Home", null, htmlAttributes: new { @class = "fa fa-2x" })</li>
+
+                        @*@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink(" ", "Index", "RolesAdmin", null, htmlAttributes: new { @class = "fa fa-2x fa-user-plus" })</li>
+                            <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
+                        }*@
+                    </ul>
+                </div>
+            </div>
+            <div id="bodies" class="col-md-8">
+                @RenderBody()
+            </div>
+        </div>
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Förskolan Älgen</p>

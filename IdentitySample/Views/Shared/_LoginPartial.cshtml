@@ -4,10 +4,15 @@
         @Html.AntiForgeryToken()
 
         <ul class="nav navbar-nav navbar-right">
-            <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-            </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            @if (User.IsInRole("Admin"))
+            {
+                <li title="Lägg till användare">
+                    @Html.ActionLink(" ", "Index", "RolesAdmin", null, htmlAttributes: new { @class = "fa fa-2x fa-user-plus" })
+                </li>
+                <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
+            }
+            <li title="Inloggad som"><a href=@Url.Action("Index", "Manage", null)><i class="fa fa-user"></i>&nbsp;@User.Identity.GetUserName()</a></li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Logga ut</a></li>
         </ul>
     }
 }

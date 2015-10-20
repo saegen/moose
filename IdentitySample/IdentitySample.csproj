@@ -161,6 +161,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\CustomCSS\NavbarMeny.css" />
     <Content Include="Content\Images\home_barn.jpg" />
     <Content Include="Content\Images\kooperativet.jpg" />
     <Content Include="Content\Images\kooperativet2.jpg" />
@@ -172,6 +173,9 @@
     <Content Include="Content\Images\personal.png" />
     <Content Include="Content\Images\verksamhet.jpg" />
     <Content Include="Content\Images\verksamhet2.jpg" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -185,6 +189,11 @@
     <Content Include="Views\Home\Meny.cshtml" />
     <Content Include="Views\Home\CoOp.cshtml" />
     <Content Include="Views\Home\Staff.cshtml" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -289,6 +298,9 @@
     <EmbeddedResource Include="Migrations\201510151105437_identity.resx">
       <DependentUpon>201510151105437_identity.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\css\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
