@@ -7,6 +7,7 @@ namespace DataLib.Controllers
 {
     using Extensions;
     using Common;
+    using DataLib;
 
     public class HomeController : Controller
     {
@@ -14,8 +15,7 @@ namespace DataLib.Controllers
         {
             if (Request.IsAuthenticated && HttpContext.User.IsInRole(UserRole.Admin))
             {
-               // return RedirectToAction("About");
-                return View();
+               return View();
             }
             return View();
         }

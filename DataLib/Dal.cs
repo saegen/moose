@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace DataLib
 {
+    using Models.Identity;
+    using Models.Content;
     public static class DAL
     {
         public static string getContent(string elementId)
@@ -53,7 +55,7 @@ namespace DataLib
                 {
                     throw new ArgumentException("Id already exists", "elementId");
                 }
-                var contentToSave = new DataLib.Models.EditableContent();
+                var contentToSave = new EditableContent();
                 contentToSave.ElementId = elementId;
                 contentToSave.Content = content;
                 contentToSave.View = url;
@@ -80,22 +82,92 @@ namespace DataLib
             }
         }
 
-        public static AspNetUser getAdminUser(string adminId)
+        public static DataLibUser getAdminUser(string adminId)
         {
             if (string.IsNullOrWhiteSpace(adminId))
             {
                 throw new ArgumentNullException("adminId");
             }
-            using (DataModel db = new DataModel())
+            using (DataModelContext db = new DataModelContext())
             {
-               // var adminAndRoles = db.Users.Include(u => u.Roles).SingleAsync(u => u.Id == adminId);
                 var admin = db.Users.Find(adminId);
-                //DataLibUser admin = db.DataLibUser
-                //var user = db.Find(adminId);
-                //return user;
-                return null;   
+                return admin;   
             }
         }
 
+        public static DataLibUser getUser(string userId)
+        {
+            if (string.IsNullOrWhiteSpace(userId))
+            {
+                throw new ArgumentNullException("userId");
+            }
+            using (DataModelContext db = new DataModelContext())
+            {
+                var admin = db.Users.Find(userId);
+                return admin;
+            }
+        }
+
+        public static IEnumerable<DataLibUser> getUsers()
+        {
+            using (DataModelContext db = new DataModelContext())
+            {
+                foreach (var user in db.Users)
+                {
+                   yield return user;
+                }
+            }
+        }
+
+        public static void addUser(DataLibUser user)
+        {
+            if (null == user)
+            {
+                throw new ArgumentNullException("user");
+            }
+            using (DataModelContext db = new DataModelContext())
+            {
+                if (db.Users.Find(user.Id) != null)
+                {
+                    throw new ArgumentException("User already exists");
+                }
+                db.Users.Add(user);
+                db.SaveChanges();
+            }
+        }
+
+        public static void deleteUser(string userId)
+        {
+            if (string.IsNullOrWhiteSpace(userId))
+            {
+                throw new ArgumentNullException("userId");
+            }
+            using (DataModelContext db = new DataModelContext())
+            {
+                var user = db.Users.Find(userId);
+                if (user != null)
+                {
+                    db.Users.Remove(user);
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        public static void deleteUser(DataLibUser user)
+        {
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+            using (DataModelContext db = new DataModelContext())
+            {
+                var dbuser = db.Users.Find(user.Id);
+                if (dbuser != null)
+                {
+                    db.Users.Remove(dbuser);
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }

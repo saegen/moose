@@ -4,7 +4,9 @@ namespace DataLib
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-    using Models;
+    using Models.Content;
+    using Models.Identity;
+
     //3 stegs arv. DataModel:DataModelContext:Identity<
     public partial class DataModel : DataModelContext
     {

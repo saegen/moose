@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DataLib;
+using DataLib.Models.Identity;
 
 namespace UnitTestProject
 {
@@ -10,11 +11,15 @@ namespace UnitTestProject
         private string toStore = "contentToSave";
         private string elementId = "htmlId";
         string adminUserId = "a5a27cee-df8c-438d-9b3b-66ddab5a5973";
+        string testUserId = Guid.Empty.ToString();
+        private DataLibUser testUser;
+
 
 
         [TestInitialize]
         public void Initialize()
         {
+            testUser = new DataLibUser("testUserName", testUserId);
             deleteContent();
         }
 
@@ -72,8 +77,25 @@ namespace UnitTestProject
         [TestMethod]
         public void getAdmin()
         {
+            var stop = testUser;
             var admin = DAL.getAdminUser(adminUserId);
             Assert.IsNotNull(admin);
+        }
+
+        [TestMethod]
+        public void addUser()
+        {
+            try
+            {
+                DAL.addUser(testUser);
+            }
+            catch (Exception ae)
+            {
+                Assert.IsTrue(ae.Message.Contains("User already exists"));
+            }
+            Assert.IsNotNull(DAL.getUser(testUserId));
+            DAL.deleteUser(testUserId);
+            Assert.IsNull(DAL.getUser(testUserId));
         }
     }
 }

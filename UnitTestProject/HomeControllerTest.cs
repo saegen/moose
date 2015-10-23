@@ -37,7 +37,7 @@ namespace UnitTestProject
             ViewResult result = controller.About() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            Assert.AreEqual("Verksamhet", result.ViewBag.Message);
         }
 
         [TestMethod]
