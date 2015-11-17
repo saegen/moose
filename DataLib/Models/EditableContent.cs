@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebSite.Models.Content
+namespace DataLib.Models.Content
 {
     using System.ComponentModel.DataAnnotations.Schema;
     using System.ComponentModel.DataAnnotations;

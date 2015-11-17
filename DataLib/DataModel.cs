@@ -1,4 +1,4 @@
-namespace WebSite
+namespace DataLib
 {
     using System;
     using System.Data.Entity;

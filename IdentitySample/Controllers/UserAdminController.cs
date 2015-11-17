@@ -1,4 +1,4 @@
-﻿using WebSiteModels;
+﻿using WebSite.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WebSiteControllers
+namespace WebSite.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class UsersAdminController : Controller

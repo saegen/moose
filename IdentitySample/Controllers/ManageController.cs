@@ -1,4 +1,4 @@
-﻿using WebSiteModels;
+﻿using WebSite.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WebSiteControllers
+namespace WebSite.Controllers
 {
     [Authorize]
     public class ManageController : Controller

@@ -1,7 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WebSite;
-using WebSite.Models.Identity;
+using WebSite.Controllers;
+using DataLib.Models.Identity;
+using DataLib;
 
 namespace UnitTestProject
 {

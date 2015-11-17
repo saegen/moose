@@ -5,7 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 
 
-namespace WebSite.Models.Identity
+namespace DataLib.Models.Identity
 {
     // You can add profile data for the user by adding more properties to your DataLibUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class DataLibUser : IdentityUser
