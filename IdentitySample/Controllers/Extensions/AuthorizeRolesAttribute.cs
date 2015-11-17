@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace DataLib.Extensions
+namespace WebSite.Extensions
 {
     public class AuthorizeRolesAttribute : AuthorizeAttribute
     {

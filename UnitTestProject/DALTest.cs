@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using DataLib;
-using DataLib.Models.Identity;
+using WebSite;
+using WebSite.Models.Identity;
 
 namespace UnitTestProject
 {
@@ -13,7 +13,7 @@ namespace UnitTestProject
         string adminUserId = "a5a27cee-df8c-438d-9b3b-66ddab5a5973";
         string testUserId = Guid.Empty.ToString();
         private DataLibUser testUser;
-
+        private DAL testDAL = new DAL();
 
 
         [TestInitialize]
@@ -33,10 +33,10 @@ namespace UnitTestProject
         {
             try
             {
-                string content = DAL.getContent(elementId);
+                string content = testDAL.getContent(elementId);
                 if (!string.IsNullOrWhiteSpace(content))
                 {
-                    DAL.deleteContent(elementId);
+                    testDAL.deleteContent(elementId);
                 }
             }
             catch (Exception)
@@ -49,13 +49,13 @@ namespace UnitTestProject
         public void TestAddContent()
         {
 
-            DAL.addContent(elementId, toStore);
+            testDAL.addContent(elementId, toStore);
 
-            Assert.AreEqual(toStore, DAL.getContent(elementId));
+            Assert.AreEqual(toStore, testDAL.getContent(elementId));
 
             try
             {
-                DAL.addContent(elementId, toStore);
+                testDAL.addContent(elementId, toStore);
                 Assert.Fail("Inget exception kastades ");
             }
             catch (ArgumentException ae)
@@ -68,17 +68,17 @@ namespace UnitTestProject
         public void TestUpdateContent()
         {
             string update = "UpdatedContent";
-            DAL.addContent(elementId, toStore);
-            Assert.AreEqual(DAL.getContent(elementId), toStore);
-            DAL.updateContent(elementId, update);
-            Assert.AreEqual(DAL.getContent(elementId), update);
+            testDAL.addContent(elementId, toStore);
+            Assert.AreEqual(testDAL.getContent(elementId), toStore);
+            testDAL.updateContent(elementId, update);
+            Assert.AreEqual(testDAL.getContent(elementId), update);
         }
 
         [TestMethod]
         public void getAdmin()
         {
             var stop = testUser;
-            var admin = DAL.getAdminUser(adminUserId);
+            var admin = testDAL.getAdminUser(adminUserId);
             Assert.IsNotNull(admin);
         }
 
@@ -87,15 +87,15 @@ namespace UnitTestProject
         {
             try
             {
-                DAL.addUser(testUser);
+                testDAL.addUser(testUser);
             }
             catch (Exception ae)
             {
                 Assert.IsTrue(ae.Message.Contains("User already exists"));
             }
-            Assert.IsNotNull(DAL.getUser(testUserId));
-            DAL.deleteUser(testUserId);
-            Assert.IsNull(DAL.getUser(testUserId));
+            Assert.IsNotNull(testDAL.getUser(testUserId));
+            testDAL.deleteUser(testUserId);
+            Assert.IsNull(testDAL.getUser(testUserId));
         }
     }
 }

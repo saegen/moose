@@ -1,4 +1,4 @@
-namespace DataLib.Migrations
+namespace WebSiteMigrations
 {
     using System;
     using System.Data.Entity.Migrations;

@@ -1,4 +1,4 @@
-﻿using DataLib.Models;
+﻿using WebSiteModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Collections.Generic;
 
-namespace DataLib.Controllers
+namespace WebSiteControllers
 {
     [Authorize(Roles = "Admin")]
     public class RolesAdminController : Controller

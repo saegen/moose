@@ -59,10 +59,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AspNetRole.cs" />
-    <Compile Include="AspNetUser.cs" />
-    <Compile Include="AspNetUserClaim.cs" />
-    <Compile Include="AspNetUserLogin.cs" />
     <Compile Include="Dal.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\C__MigrationHistory.cs" />

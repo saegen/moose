@@ -11,9 +11,9 @@ using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web;
 using System.Reflection;
-using DataLib.Common;
+using WebSite.Common;
 
-namespace DataLib.Models
+namespace WebSiteModels
 {
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
 

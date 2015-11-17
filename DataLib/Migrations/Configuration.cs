@@ -1,4 +1,4 @@
-namespace DataLib.Migrations
+namespace WebSite.Migrations
 {
     using Models;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -7,14 +7,14 @@ namespace DataLib.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DataLib.DataModel>
+    internal sealed class Configuration : DbMigrationsConfiguration<WebSite.DataModel>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DataLib.DataModel context)
+        protected override void Seed(WebSite.DataModel context)
         {
             
             //  This method will be called after migrating to the latest version.

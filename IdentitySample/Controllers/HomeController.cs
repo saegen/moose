@@ -3,11 +3,11 @@ using System.Diagnostics;
 using System.Web.Mvc;
 using System.Linq;
 
-namespace DataLib.Controllers
+namespace WebSite.Controllers
 {
     using Extensions;
     using Common;
-    using DataLib;
+    using WebSite;
 
     public class HomeController : Controller
     {

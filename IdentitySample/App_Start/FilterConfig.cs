@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace DataLib
+namespace WebSite
 {
     public class FilterConfig
     {

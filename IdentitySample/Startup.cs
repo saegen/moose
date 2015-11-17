@@ -1,6 +1,6 @@
 ﻿using Owin;
 
-namespace DataLib
+namespace WebSite
 {
     public partial class Startup
     {
