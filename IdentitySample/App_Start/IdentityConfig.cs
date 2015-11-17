@@ -110,7 +110,6 @@ namespace DataLib.Models
     {
         protected override void Seed(ApplicationDbContext context) {
 
-
             InitializeIdentityForEF(context);
             base.Seed(context);
         }

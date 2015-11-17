@@ -33,19 +33,6 @@ namespace DataLib.Models.Identity
         public DataModelContext(string nameOrConnectionString = "DataModelCodeFirst", bool throwIfV1Schema = false)
             //: base("DataModelCodeFirst", throwIfV1Schema: false)
             : base(nameOrConnectionString, throwIfV1Schema)
-        {
-        }
-
-        //static DataModelContext()
-        //{
-        //    // Set the database intializer which is run once during application start
-        //    // This seeds the database with admin user credentials and admin role
-        //   // Database.SetInitializer<DataModelContext>(new ApplicationDbInitializer());
-        //}
-
-        //public static DataModelContext Create()
-        //{
-        //    return new DataModelContext();
-        //}
+        { }
     }
 }

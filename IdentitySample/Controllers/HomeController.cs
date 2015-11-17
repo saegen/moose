@@ -15,7 +15,7 @@ namespace DataLib.Controllers
         {
             if (Request.IsAuthenticated && HttpContext.User.IsInRole(UserRole.Admin))
             {
-               return View();
+                return View();
             }
             return View();
         }
