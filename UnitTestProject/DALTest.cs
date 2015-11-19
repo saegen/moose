@@ -105,7 +105,7 @@ namespace UnitTestProject
             }
             catch (Exception ex)
             {
-                Assert.Fail("The User: " + testUser.UserName + " was not found in the database." + ex.Message + ex.InnerException.Message);
+                Assert.Fail("The User: " + testUser.UserName + " was not found in the database." + ex.Message );
             }
             
             
