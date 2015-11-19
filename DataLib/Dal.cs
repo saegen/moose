@@ -10,6 +10,8 @@ namespace DataLib
 {
     using Models.Identity;
     using Models.Content;
+    using Microsoft.AspNet.Identity.EntityFramework;
+
     public class DAL
     {
         //private  UserManager<DataLibUser> userManager = new UserManager<DataLibUser>(;
@@ -113,6 +115,21 @@ namespace DataLib
             }
         }
 
+        public DataLibUser getUserByName(string username)
+        {
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                throw new ArgumentNullException("username");
+            }
+            using (DataModelContext db = new DataModelContext())
+            {
+                //var user = db.Users.Where(u => u.UserName == username).First(); //Find(userId);
+                var user = db.Users.SingleOrDefault(u => u.UserName == username);
+                return user;
+            }
+        }
+
+
         public DataLibUser getUser(string userId)
         {
             if (string.IsNullOrWhiteSpace(userId))
@@ -133,6 +150,17 @@ namespace DataLib
                 foreach (var user in db.Users)
                 {
                    yield return user;
+                }
+            }
+        }
+
+        public IEnumerable<IdentityRole> getRoles()
+        {
+            using (DataModel db = new DataModel())
+            {
+                foreach (var role in db.Roles)
+                {
+                    yield return role;
                 }
             }
         }

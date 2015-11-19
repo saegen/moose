@@ -15,6 +15,11 @@ namespace DataLib
         {
         }
 
+        public static DataModel Create()
+        {
+            return new DataModel();
+        }
+
         public virtual DbSet<EditableContent> Content { get; set; }
 
         //public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }

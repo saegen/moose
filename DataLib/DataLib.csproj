@@ -60,9 +60,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dal.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\C__MigrationHistory.cs" />
     <Compile Include="DataModel.cs" />
+    <Compile Include="Migrations\201511180817116_fixError.cs" />
+    <Compile Include="Migrations\201511180817116_fixError.Designer.cs">
+      <DependentUpon>201511180817116_fixError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511181525548_discriminatorColumn.cs" />
+    <Compile Include="Migrations\201511181525548_discriminatorColumn.Designer.cs">
+      <DependentUpon>201511181525548_discriminatorColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EditableContent.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,6 +77,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201511180817116_fixError.resx">
+      <DependentUpon>201511180817116_fixError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511181525548_discriminatorColumn.resx">
+      <DependentUpon>201511181525548_discriminatorColumn.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

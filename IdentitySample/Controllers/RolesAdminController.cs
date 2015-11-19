@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Collections.Generic;
+using DataLib.Models.Identity;
 
 namespace WebSite.Controllers
 {
@@ -68,7 +69,7 @@ namespace WebSite.Controllers
             }
             var role = await RoleManager.FindByIdAsync(id);
             // Get the list of Users in this Role
-            var users = new List<ApplicationUser>();
+            var users = new List<DataLibUser>();
 
             // Get the list of Users in this Role
             foreach (var user in UserManager.Users.ToList())

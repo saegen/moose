@@ -14,17 +14,19 @@ namespace DataLib.Models.Identity
 
         public DataLibUser(string userName) : base(userName) { }
 
-        public DataLibUser(string userName,string id) : base(userName) { Id = id; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CS0114:Dont hide Base class field",Justification ="Only just for testing")]
-        public string Id {
-            get { return base.Id; }
-            set { base.Id = value; }
+        //Ej nödvändig
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<DataLibUser> manager)
+        {
+            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
+            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+            // Add custom user claims here
+            return userIdentity;
         }
     }
 
     public class DataLibRole : IdentityRole
     {
+        public DataLibRole() : base() { }
         public DataLibRole(string roleName) : base(roleName) { }
     }
 
@@ -34,5 +36,6 @@ namespace DataLib.Models.Identity
             //: base("DataModelCodeFirst", throwIfV1Schema: false)
             : base(nameOrConnectionString, throwIfV1Schema)
         { }
+
     }
 }
