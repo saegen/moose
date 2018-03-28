@@ -53,7 +53,7 @@ namespace UnitTestProject
         }
 
         [TestMethod]
-        public void TestIdentityDB()
+        public void TestRolesExists()
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
@@ -61,59 +61,11 @@ namespace UnitTestProject
                 foreach (var appRole in db.Roles)
                 {
                     t = true;
-                    Console.WriteLine("appRole: " + appRole.ToString());
                 }
                 Assert.IsTrue(t, "Det finns inga Roler!");
-                t = false;
-                foreach (var user in db.Users)
-                {
-                    t = true;
-                    Console.WriteLine("UserName: " + user.UserName);
-                    foreach (var role in user.Roles)
-                    {
-                        Console.WriteLine("UserRole" + role.ToString());
-                    }
-                }
-                Assert.IsTrue(t, "Det finns inga Användare!");
             }
 
-        }    
-        //[TestMethod]
-        //public async System.Threading.Tasks.Task TestUpdateContentAsync()
-        //{
-        //    RegisterViewModel model = new RegisterViewModel()
-        //    {
-        //        Email = "test@mail.com",
-        //        Password = "pws",
-        //        ConfirmPassword = "pws"
-        //    };
+        }       
 
-        //    using (ApplicationDbContext db = new ApplicationDbContext())
-        //    {
-        //        var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-        //        user.Roles.Add()
-        //        db.Users.Add(user);
-                
-        //    }
-
-        //    IdentitySample.Models
-
-                
-                
-        //        var result = await UserManager.CreateAsync(user, model.Password);
-        //        if (result.Succeeded)
-        //        {
-        //            var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-        //            var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-        //            await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
-        //            ViewBag.Link = callbackUrl;
-        //            return View("DisplayEmail");
-        //        }
-        //    Assert.Fail("Blev inge bra nå");
-            
-
-        //    // If we got this far, something failed, redisplay form
-        //    return View(model);
-        //}
     }
 }
