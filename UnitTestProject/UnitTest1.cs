@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.Data.Entity.Migrations;
 
 namespace UnitTestProject
 {
@@ -14,33 +15,29 @@ namespace UnitTestProject
     {
 
         private ApplicationUser user = new ApplicationUser() { Email = "unit@test.se", UserName = "Mr UnitTest"};
-        private IdentityRole[] roles = { new IdentityRole("Admin") , new IdentityRole("Tester") };
+        private IdentityRole[] roles = { new IdentityRole("Admin") , new IdentityRole("Tester"), new IdentityRole("TesterToDelete") };
 
         [TestMethod]
         public void TestAddRole()
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                try
-                {
-                    db.Roles.Add(roles[0]);
-                    db.Roles.Add(roles[1]);
+                    //AddOrUpdate med avseende på namn. Tar man inte med funktionen så kastar den på samma sätt som Add
+                    db.Roles.AddOrUpdate(r => r.Name, roles[0]);
+                    db.Roles.AddOrUpdate(r => r.Name, roles[1]);
+                    db.Roles.AddOrUpdate(r => r.Name, roles[2]);
                     db.SaveChanges();
-                }
-                catch (Exception ex)
-                {
-                    if (ex is DbEntityValidationException)
-                    {
-                        foreach (var errror in db.GetValidationErrors())
-                        {
-                            Console.WriteLine(errror.ToString());
-                        }
-                    }
-                    else { throw; }
+            }
+        }
 
-                }
-                
-                
+        [TestMethod]
+        public void TestAddUser()
+        {
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                //AddOrUpdate med avseende på namn. Tar man inte med funktionen så kastar den på samma sätt som Add
+                db.Users.AddOrUpdate(u => u.UserName, user);
+                db.SaveChanges();
             }
         }
 

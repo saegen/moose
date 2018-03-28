@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,16 +46,12 @@ namespace DataLib
             }
             using (DataModel db = new DataModel())
             {
-                var _content = db.Content.Find(elementId);
-                if (_content != null)
-                {
-                    throw new ArgumentException("{0} already exists. Try updateContent?", elementId);
-                }
                 var contentToSave = new DataLib.Models.EditableContent();
                 contentToSave.ElementId = elementId;
                 contentToSave.Content = content;
                 contentToSave.View = url;
-                db.Content.Add(contentToSave);
+                //db.Content.AddOrUpdate(c => c.ElementId, contentToSave);
+                db.Content.AddOrUpdate(contentToSave);
                 db.SaveChanges();
             }
         }
