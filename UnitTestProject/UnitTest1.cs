@@ -47,7 +47,7 @@ namespace UnitTestProject
             string toStore = "contentToSave";
             string elementId = "htmlId";
 
-            DAL.addContent(elementId, toStore);
+            DAL.AddContent(elementId, toStore);
 
             Assert.AreEqual<string>(toStore, DAL.getContent(elementId));
         }

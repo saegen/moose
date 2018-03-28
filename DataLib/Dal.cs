@@ -22,7 +22,7 @@ namespace DataLib
             }
         }
 
-        public static void deleteContent(string elementId)
+        public static void DeleteContent(string elementId)
         {
             if (string.IsNullOrWhiteSpace(elementId))
             {
@@ -38,7 +38,7 @@ namespace DataLib
             }
         }
 
-        public static void addContent(string elementId, string content, string url = "")
+        public static void AddContent(string elementId, string content, string url = "")
         {
             if (string.IsNullOrWhiteSpace(elementId))
             {
@@ -56,7 +56,7 @@ namespace DataLib
             }
         }
 
-        public static void updateContent(string elementId, string content)
+        public static void UpdateContent(string elementId, string content)
         {
             if (string.IsNullOrWhiteSpace(elementId))
             {
